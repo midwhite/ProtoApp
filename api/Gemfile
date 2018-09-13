@@ -21,6 +21,8 @@ gem 'rails-i18n'
 # 外部サービス連携
 gem 'aws-sdk-s3'
 gem 'koala'
+gem 'google-api-client'
+gem 'twitter'
 gem 'slack-api'
 gem 'webpush'
 

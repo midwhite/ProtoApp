@@ -6,6 +6,12 @@ class User::AuthService < ApplicationService
   FACEBOOK_TOKEN_ENDPOINT = "https://graph.facebook.com/" + FACEBOOK_OAUTH_VERSION + "/oauth/access_token"
   FACEBOOK_REDIRECT_URI   = API_DOMAIN + "/v1/auth/facebook/callback"
 
+  def self.app_redirect_uri(user)
+    query_hash = { token: user.access_token }
+    APP_DOMAIN + "/auth/callback" + query_string(query_hash)
+  end
+
+  # Facebook OAuth
   def self.facebook_oauth_endpoint
     query_hash = {
       client_id: FACEBOOK_APP_ID,
@@ -24,11 +30,6 @@ class User::AuthService < ApplicationService
     FACEBOOK_TOKEN_ENDPOINT + query_string(query_hash)
   end
 
-  def self.app_redirect_uri(user)
-    query_hash = { token: user.access_token }
-    APP_DOMAIN + "/auth/callback" + query_string(query_hash)
-  end
-
   def self.find_facebook_user(code)
     oauth = JSON.parse(open(self.facebook_token_endpoint(code)).read, symbolize_names: true)
     graph = Koala::Facebook::API.new(oauth[:access_token])
@@ -42,6 +43,26 @@ class User::AuthService < ApplicationService
     user.save!
 
     user
+  end
+
+  # Google OAuth
+  def self.google_oauth_endpoint
+  end
+
+  def self.google_token_endpoint
+  end
+
+  def self.find_google_user
+  end
+
+  # Twitter OAuth
+  def self.twitter_oauth_endpoint
+  end
+
+  def self.twitter_token_endpoint
+  end
+
+  def self.find_twitter_user
   end
 
   private

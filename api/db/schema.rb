@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(version: 2018_09_13_064640) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
+    t.string "uid"
+    t.string "provider"
     t.string "name", default: ""
     t.integer "gender"
     t.date "birthday"
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_09_13_064640) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email", "deleted_at"], name: "index_users_on_email_and_deleted_at", unique: true
+    t.index ["uid", "provider", "deleted_at"], name: "index_users_on_uid_and_provider_and_deleted_at", unique: true
   end
 
 end

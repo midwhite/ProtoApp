@@ -14,6 +14,11 @@
 | GOOGLE_CLIENT_ID | String | Google Client ID for OAuth Login |
 | GOOGLE_CLIENT_SECRET | String | Google Client Secret for OAuth Login |
 | SLACK_TOKEN | String | Slack API Token |
+| TWITTER_CONSUMER_KEY | String | Twitter Consumer Key |
+| TWITTER_CONSUMER_SECRET | String | Twitter Consumer Secret |
+| TWITTER_ACCESS_TOKEN | String | Twitter Access Token |
+| TWITTER_ACCESS_TOKEN_SECRET | String | Twitter Access Token Secret |
+
 
 ### install dependencies
 ```bash
@@ -35,6 +40,10 @@ $ echo SECRET_KEY_BASE=`bundle exec rails secret` >> .env
 2. Create OAuth Information
 3. Set `https://localhost:9292/v1/auth/google/callback` as OAuth redirect URI on Credentials Settings
 4. Get Client ID and Client Secret
+
+## Twitter OAuth Login
+1. Create Twitter App on [Twitter Application Management](https://apps.twitter.com)
+2. Set `https://localhost:9292/v1/auth/twitter/callback` as OAuth callback URL on Twitter Application Management
 
 ## Slack Notification
 1. Publish Slack OAuth token

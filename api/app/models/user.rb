@@ -4,6 +4,7 @@ class User < ApplicationRecord
   acts_as_paranoid
 
   has_many :photos, class_name: "UserPhoto", dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   before_create :set_access_token
 

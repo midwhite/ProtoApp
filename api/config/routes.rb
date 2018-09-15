@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root controller: :application, action: :check
 
-  namespace :v1 do
+  namespace :v1, defaults: { format: :json } do
     # Auth
     scope :auth do
       scope :facebook do

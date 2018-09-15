@@ -8,6 +8,9 @@
 | key | type | description |
 |:--:|:--:|--:|
 | SECRET_KEY_BASE | String | see the description below to generate |
+| S3_BUCKET_NAME | String | AWS S3 Bucket name |
+| AWS_ACCESS_KEY_ID | String | AWS Access key ID |
+| AWS_SECRET_ACCESS_KEY | String | AWS Access key secret |
 | FACEBOOK_APP_ID | String | Facebook App ID for OAuth Login |
 | FACEBOOK_APP_SECRET | String | Facebook App Secret for OAuth Login |
 | GOOGLE_PROJECT_ID | String | Google Project ID for OAuth Login |
@@ -18,6 +21,7 @@
 | TWITTER_CONSUMER_SECRET | String | Twitter Consumer Secret |
 | TWITTER_ACCESS_TOKEN | String | Twitter Access Token |
 | TWITTER_ACCESS_TOKEN_SECRET | String | Twitter Access Token Secret |
+| TINIFY_API_KEY | String | Tinify API Key |
 
 
 ### install dependencies
@@ -44,6 +48,9 @@ $ echo SECRET_KEY_BASE=`bundle exec rails secret` >> .env
 ## Twitter OAuth Login
 1. Create Twitter App on [Twitter Application Management](https://apps.twitter.com)
 2. Set `https://localhost:9292/v1/auth/twitter/callback` as OAuth callback URL on Twitter Application Management
+
+## Tinify Photos
+1. Get TinyPNG API Key on [TinyPNG Developer API](https://tinypng.com/developers) and set it as environment variable
 
 ## Slack Notification
 1. Publish Slack OAuth token

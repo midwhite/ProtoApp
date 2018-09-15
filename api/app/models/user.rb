@@ -1,10 +1,20 @@
 class User < ApplicationRecord
   enum gender: [:male, :female, :x_gender]
 
+  acts_as_paranoid
+
+  has_many :photos, class_name: "UserPhoto", dependent: :destroy
+
   before_create :set_access_token
 
   def dummy_email
     "#{self.uid}@#{self.provider}.com"
+  end
+
+  def upload_photo(**params)
+    photo = self.photos.new
+    photo.upload(params)
+    photo.save
   end
 
   private

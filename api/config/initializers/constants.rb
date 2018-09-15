@@ -11,4 +11,6 @@ module Constants
 
   FACEBOOK_APP_ID = ENV.fetch("FACEBOOK_APP_ID")
   FACEBOOK_APP_SECRET = ENV.fetch("FACEBOOK_APP_SECRET")
+
+  TMP_PHOTOS_DIR = "tmp"
 end

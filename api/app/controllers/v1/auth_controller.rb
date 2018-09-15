@@ -24,7 +24,7 @@ class V1::AuthController < ApplicationController
   end
 
   def twitter_callback
-    user = User::AuthService.find_twitter_user(params[:code])
+    user = User::AuthService.find_twitter_user(params[:oauth_token], params[:oauth_verifier])
     redirect_to User::AuthService.app_redirect_uri(user)
   end
 end

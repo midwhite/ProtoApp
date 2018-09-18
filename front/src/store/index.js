@@ -5,9 +5,14 @@ import mutations from './mutation-types';
 
 Vue.use(Vuex);
 
-const state = {};
+const state = {
+  isLoading: true,
+  currentUser: null,
+};
 
-const getters = {};
+const getters = {
+  isSignedIn(state) { return !!state.currentUser; }
+};
 
 export default new Vuex.Store({
   state,

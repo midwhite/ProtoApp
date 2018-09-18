@@ -24,7 +24,10 @@ class User::AuthService < ApplicationService
   TWITTER_CONSUMER_SECRET    = ENV["TWITTER_CONSUMER_SECRET"]
 
   def self.app_redirect_uri(user)
-    query_hash = { token: "#{user.id}:#{user.access_token}" }
+    query_hash = {
+      token: "#{user.id}:#{user.access_token}",
+      provider: user.provider
+    }
     APP_DOMAIN + "/auth/callback" + query_string(query_hash)
   end
 

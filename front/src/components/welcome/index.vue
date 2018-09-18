@@ -2,17 +2,32 @@
   <div id="WelcomeComponent">
     <header id="header">
       <h1 class="header-title">ProtoApp</h1>
-      <div class="header-menu-button">
+      <div class="header-menu-button" @click="toggleModal">
         <img :src="require('@/assets/images/icons/menu.png')" alt="menu" class="header-menu-icon" />
       </div>
     </header>
     <div id="firstview" :style="{ backgroundImage: `url(${ require('@/assets/images/welcome/firstview.png') })` }">
     </div>
+    <registration-modal v-if="showModal" @close="toggleModal" />
   </div>
 </template>
 
 <script>
-  export default {};
+  import RegistrationModal from './modals/registration-modal';
+
+  export default {
+    data: () => ({
+      showModal: false,
+    }),
+    methods: {
+      toggleModal() {
+        this.showModal = !this.showModal;
+      },
+    },
+    components: {
+      RegistrationModal,
+    },
+  };
 </script>
 
 <style lang="scss" scoped>

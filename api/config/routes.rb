@@ -20,6 +20,8 @@ Rails.application.routes.draw do
         root controller: :auth, action: :twitter, as: :twitter
         get :callback, controller: :auth, action: :twitter_callback, as: :twitter_callback
       end
+
+      get :me, controller: :auth
     end
   end
 

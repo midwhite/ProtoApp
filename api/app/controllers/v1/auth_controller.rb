@@ -1,5 +1,10 @@
 class V1::AuthController < ApplicationController
   skip_before_action :authenticate_user_from_token!
+  before_action :login_if_token_exists!, only: [:me]
+
+  def me
+    render json: { me: current_user && current_user.me }
+  end
 
   def facebook
     redirect_to User::AuthService.facebook_oauth_endpoint

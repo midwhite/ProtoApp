@@ -8,8 +8,40 @@ class User < ApplicationRecord
 
   before_create :set_access_token
 
+  def response
+    {
+      id: self.id,
+      name: self.name,
+      age: self.age,
+      gender: self.gender,
+      area: self.area
+    }
+  end
+
+  def detail
+    self.response.merge(
+      profile: self.profile
+    )
+  end
+
+  def me
+    self.detail.merge(
+      email: self.email,
+      provider: self.provider,
+      birthday: self.birthday,
+      email: self.email,
+    )
+  end
+
   def dummy_email
     "#{self.uid}@#{self.provider}.com"
+  end
+
+  def age
+    return nil if self.birthday.blank?
+
+    date_format = "%Y%m%d"
+    (Date.today.strftime(date_format).to_i - (self.birthday).strftime(date_format).to_i) / 10000
   end
 
   def upload_photo(**params)

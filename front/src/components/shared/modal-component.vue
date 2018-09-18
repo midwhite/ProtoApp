@@ -14,7 +14,7 @@
 
           <div class="modal-footer">
             <slot name="footer">
-              <button class="modal-default-button" @click="$emit('close')">OK</button>
+              <button class="btn modal-default-button" @click="$emit('close')">OK</button>
             </slot>
           </div>
         </div>
@@ -24,7 +24,7 @@
 </template>
 
 <style lang="scss" scoped>
-  @import '../../assets/css/variables';
+  @import '@/assets/css/variables.scss';
 
   .modal-header {
     padding: 0px 0px 10px;
@@ -77,6 +77,10 @@
 
   .modal-default-button {
     float: right;
+    min-width: 100px;
+    background: $ThemeColor;
+    color: #FFF;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
   }
 
   /* Animation */

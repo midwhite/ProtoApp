@@ -9,6 +9,7 @@
       <footer-component />
     </div>
     <is-loading :loading="isLoading" />
+    <snackbar v-if="flashMessage" />
   </div>
 </template>
 
@@ -18,11 +19,12 @@
   import FooterComponent from '@/components/shared/footer';
   import WelcomeComponent from '@/components/welcome';
   import IsLoading from '@/components/shared/is-loading';
+  import Snackbar from '@/components/shared/snackbar';
 
   export default {
     name: 'app',
     computed: {
-      ...mapState(['isLoading', 'currentUser']),
+      ...mapState(['isLoading', 'currentUser', 'flashMessage']),
       isSignedIn() { return !!this.currentUser; },
     },
     methods: {
@@ -33,6 +35,7 @@
       FooterComponent,
       WelcomeComponent,
       IsLoading,
+      Snackbar,
     },
     mounted() { this.login().then(() => { this.$store.commit('loadStop'); }); },
   }

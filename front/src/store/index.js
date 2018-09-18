@@ -7,6 +7,7 @@ Vue.use(Vuex);
 
 const state = {
   isLoading: true,
+  flashMessage: null,
   currentUser: null,
 };
 

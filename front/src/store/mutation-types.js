@@ -1,4 +1,10 @@
 export default {
+  login(state, data) {
+    state.currentUser = data.me;
+  },
+  setFlashMessage(state, message) {
+    state.flashMessage = message;
+  },
   loadStart(state) {
     state.isLoading = true;
   },
@@ -11,8 +17,5 @@ export default {
     } else {
       state.isLoading = isLoading;
     }
-  },
-  login(state, data) {
-    state.currentUser = data.me;
   },
 };

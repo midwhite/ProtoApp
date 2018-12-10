@@ -22,8 +22,9 @@
       this.login();
       // transit user to top page
       this.$router.push({ path: '/' });
-      // [TODO] display success message with snackbar
+      // display success message with snackbar
       const provider = this.$route.query.provider;
+      this.$store.commit('setFlashMessage', provider + 'ログインしました');
     },
   };
 </script>

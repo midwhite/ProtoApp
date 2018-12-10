@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import { mapState, mapGetters, mapActions } from 'vuex';
+  import { mapState, mapActions } from 'vuex';
   import HeaderComponent from '@/components/shared/header';
   import FooterComponent from '@/components/shared/footer';
   import WelcomeComponent from '@/components/welcome';
